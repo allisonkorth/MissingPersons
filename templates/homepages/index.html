@@ -1,0 +1,58 @@
+<!--Project By: Alden Transfiguracion, Kimberly Hunter, Baylor Jeppsen, Allison Korth, Pablo Pineda, Levi Wilson-->
+<!-- The goal of this project is for you to design and implement a website that will help the BYU community learn about and 
+     engage with combatting human trafficking. Convert JSON Data into an HTML Table and include that in the site. -->
+{% extends 'base.html' %}
+{% load static%}
+{% block content%}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Human Trafficking</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">The hidden world of Utah commerce.</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+{% load static%}
+{% block table%}
+        <!--Data-->
+        <section class="about-section text-center" id="data">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-0 mb-5mb-lg-0 justify-content-center">
+                    <h2 class="text-white mb-4" style="text-align: center;">Data</h2>
+                        <div>   
+                            <table>
+                                <tr>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> Date Missing</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> Last Name</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> First Name</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> Age at Missing</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> City</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> State</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> Gender</th>
+                                    <th class="text-info" style="border: 1px solid grey; padding: 10px;"> Race</th>
+                                </tr>
+                                {% for oPerson in data %}
+                                <tr style="border: 1px solid grey; padding: 10px, 3px, 10px, 3px;">
+                                    <td style="border: 1px solid grey;"> {{oPerson.date_missing}}</td>
+                                    <td style="border: 1px solid grey; padding-left: 18px; padding-right: 18px;"> {{oPerson.last_name}}</td>
+                                    <td style="border: 1px solid grey;"> {{oPerson.first_name}}</td>
+                                    <td style="border: 1px solid grey;"> {{oPerson.age_at_missing}}</td>
+                                    <td style="border: 1px solid grey; padding-left: 18px; padding-right: 18px;"> {{oPerson.city}}</td>
+                                    <td style="border: 1px solid grey;"> {{oPerson.state}}</td>
+                                    <td style="border: 1px solid grey;"> {{oPerson.gender}}</td>
+                                    <td style="border: 1px solid grey;"> {{oPerson.race}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        
+                        </div>
+                </div>
+            </div>
+        </section> 
+{% endblock %}
